@@ -136,7 +136,10 @@ CFLAGS += -include $(RTE_SDK_BIN)/include/rte_config.h
 LDFLAGS += -L$(RTE_SDK_BIN)/lib
 endif
 
+CXXFLAGS := $(CFLAGS)
+
 export CFLAGS
+export CXXFALGS
 export LDFLAGS
 
 endif

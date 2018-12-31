@@ -32,8 +32,9 @@
 #
 # toolchain:
 #
-#   - define CC, LD, AR, AS, ... (overriden by cmdline value)
+#   - define CC,CXX, LD, AR, AS, ... (overriden by cmdline value)
 #   - define TOOLCHAIN_CFLAGS variable (overriden by cmdline value)
+#   - define TOOLCHAIN_CXXFLAGS variable (overriden by cmdline value)
 #   - define TOOLCHAIN_LDFLAGS variable (overriden by cmdline value)
 #   - define TOOLCHAIN_ASFLAGS variable (overriden by cmdline value)
 #
@@ -42,6 +43,7 @@
 # x86->x86 compiler
 
 CC        = icc
+CXX       = icc
 KERNELCC  = gcc
 CPP       = cpp
 AS        = nasm
@@ -57,9 +59,11 @@ HOSTCC    = icc
 else
 HOSTCC    = gcc
 endif
+HOSTCXX   = icc
 HOSTAS    = as
 
 TOOLCHAIN_CFLAGS =
+TOOLCHAIN_CXXFLAGS = 
 TOOLCHAIN_LDFLAGS =
 TOOLCHAIN_ASFLAGS =
 
@@ -82,5 +86,5 @@ endif
 # process cpu flags
 include $(RTE_SDK)/mk/toolchain/$(RTE_TOOLCHAIN)/rte.toolchain-compat.mk
 
-export CC AS AR LD OBJCOPY OBJDUMP STRIP READELF
-export TOOLCHAIN_CFLAGS TOOLCHAIN_LDFLAGS TOOLCHAIN_ASFLAGS
+export CC CXX AS AR LD OBJCOPY OBJDUMP STRIP READELF
+export TOOLCHAIN_CFLAGS TOOLCHAIN_CXXFLAGS TOOLCHAIN_LDFLAGS TOOLCHAIN_ASFLAGS
